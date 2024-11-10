@@ -1,3 +1,4 @@
+
 package tn.esprit.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,9 @@ public class LessonController {
         return lessonService.getAllLessons();
     }
 
-    @GetMapping("/getLesson/{id}")
-    public Lesson getLessonById(@PathVariable Long id) {
-        return lessonService.getLessonById(id);
+    @GetMapping("getLesson/{idLesson}")
+    public Lesson getLessonById(@PathVariable Long idLesson) {
+        return lessonService.getLesson(idLesson);
     }
 
     @PostMapping("/createLesson")
@@ -31,11 +32,17 @@ public class LessonController {
         return lessonService.createLesson(lesson);
     }
 
-    @DeleteMapping("deleteLesson/{id}")
-    public void deleteLessonById(@PathVariable Long id) {
-        lessonService.deleteLessonById(id);
+    @DeleteMapping("deleteLesson/{idLesson}")
+    public void deleteLessonById(@PathVariable Long idLesson) {
+        lessonService.deleteLesson(idLesson);
     }
 
-
-
+    @PutMapping("updateLesson/{idLesson}")
+    public Lesson UpdatSiteRadio(@PathVariable Long idLesson, @RequestBody Lesson lesson) {
+        return lessonService.updateLesson(idLesson, lesson);
+    }
+    @GetMapping("/search")
+    public List<Lesson> searchLesson(@RequestParam("text") String text) {
+        return lessonService.searchLesson(text);
+    }
 }

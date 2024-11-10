@@ -9,7 +9,9 @@ public interface LessonService {
 
 
     List<Lesson> getAllLessons();
-    Lesson getLessonById(Long id);
+    Lesson getLesson(Long idLesson);
     Lesson createLesson(Lesson lesson);
-    void deleteLessonById(Long id);
+    void deleteLesson(Long idLesson);
+    Lesson updateLesson(Long idLesson, Lesson lesson);
+    List<Lesson> searchLesson(String text);
 }

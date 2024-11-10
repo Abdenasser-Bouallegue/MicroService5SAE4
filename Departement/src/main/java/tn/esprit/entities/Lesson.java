@@ -2,84 +2,33 @@ package tn.esprit.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
+@Setter
+@Getter
 @Entity
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Lesson {
 
 
-    @Id @GeneratedValue
-    private Long id;
-
+    @Id
+    @GeneratedValue
+    private Long idLesson;
     private String subject;
     private String teacher;
     private String studentGroup;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Timeslot timeslot;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Room room;
-
-    // No-arg constructor required for Hibernate and OptaPlanner
-    public Lesson() {
-    }
-
-    public Lesson(String subject, String teacher, String studentGroup) {
-        this.subject = subject;
-        this.teacher = teacher;
-        this.studentGroup = studentGroup;
-    }
-
-    public Lesson(long id, String subject, String teacher, String studentGroup, Timeslot timeslot, Room room) {
-        this(subject, teacher, studentGroup);
-        this.id = id;
-        this.timeslot = timeslot;
-        this.room = room;
-    }
-
-    @Override
-    public String toString() {
-        return subject + "(" + id + ")";
-    }
-
-    // ************************************************************************
-    // Getters and setters
-    // ************************************************************************
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public String getTeacher() {
-        return teacher;
-    }
-
-    public String getStudentGroup() {
-        return studentGroup;
-    }
-
-    public Timeslot getTimeslot() {
-        return timeslot;
-    }
-
-    public void setTimeslot(Timeslot timeslot) {
-        this.timeslot = timeslot;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
 
 }
