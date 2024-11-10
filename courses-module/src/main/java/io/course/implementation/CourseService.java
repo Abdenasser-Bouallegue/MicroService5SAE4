@@ -41,9 +41,16 @@ public class CourseService implements ICourseService {
         return courseRepository.save(course);
     }
 
+
     public Course updateCourse(Course course) {
-        return courseRepository.save(course);
+        if (courseRepository.existsById(course.getId())) {
+            return courseRepository.save(course);  // Sauvegarder le cours mis à jour
+        } else {
+            throw new IllegalArgumentException("Course not found");
+        }
     }
+
+
 
     @Override
     public int deleteCourse(String courseId) {

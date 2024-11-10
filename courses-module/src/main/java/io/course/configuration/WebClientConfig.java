@@ -9,9 +9,10 @@ import reactor.netty.http.client.HttpClient;
 
 @Configuration
 public class WebClientConfig {
+
     @Bean
     @LoadBalanced
-    public WebClient.Builder webClient() {
+    public WebClient.Builder webClientBuilder() {
         // Create a custom HttpClient without a timeout
         HttpClient httpClient = HttpClient.create();
 

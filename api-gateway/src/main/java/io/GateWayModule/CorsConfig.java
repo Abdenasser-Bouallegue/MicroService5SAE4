@@ -1,4 +1,4 @@
-package io.discoveryServer;
+package io.GateWayModule;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
