@@ -1,0 +1,27 @@
+
+<div class="card">
+    <div class="card-head">
+        <h2>{{ chapter.title }}</h2>
+        <p>{{ chapter.description }}</p>
+        <upload-file [chapterId]="chapter.id"></upload-file>
+    </div>
+
+    <div class="card-body">
+        <div 
+            *ngFor="let source of mediaSources"
+            (click)="loadResourseRef(source)"
+            style="outline: 1px solid black;"
+            class="m-3 p-2"
+        > 
+            {{ source.context }} 
+            <img *ngIf="source.type == 'IMAGE'" [src]="source.url" alt="">
+            <a *ngIf="source.type == 'PDF'" [download]="source.context" [href]="source.url">download</a>
+            <video 
+                *ngIf="source.type == 'VIDEO' and source.url != null" 
+                style="width: 1080; max-width: 1080;aspect-ratio: 16/9;"
+                controls 
+                #videoElement
+            ></video>
+        </div>
+    </div>
+</div>

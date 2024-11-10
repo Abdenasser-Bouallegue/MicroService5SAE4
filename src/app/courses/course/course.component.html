@@ -1,0 +1,12 @@
+
+<div class="card m-2" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ course.label }}</h5>
+        <button class="btn btn-danger" (click)="deleteCourse()">delete</button>
+        <p class="card-text">{{ course.description }}</p>
+        <a 
+            [routerLink]="['/courses', course.id]" 
+            class="card-link"
+        >show details</a>
+    </div>
+  </div>

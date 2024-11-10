@@ -1,0 +1,16 @@
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+  <label for="context">Context:</label>
+  <input type="text" formControlName="context" id="context" required>
+
+  <label for="type">Type:</label>
+    <select formControlName="type" id="type" required>
+    <option value="IMAGE">Image</option>
+    <option value="PDF">PDF</option>
+    <option value="VIDEO">Video</option>
+  </select>
+
+  <label for="file">File:</label>
+  <input (change)="fileChange($event)" type="file" formControlName="file" id="file" accept="image/*,application/pdf,video/*" required>
+
+  <button type="submit" [disabled]="!uploadForm.valid">Submit</button>
+</form>

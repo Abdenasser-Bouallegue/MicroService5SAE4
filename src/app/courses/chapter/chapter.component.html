@@ -1,0 +1,29 @@
+<div class="accordion-item my-1">
+    <h2 class="accordion-header">
+        
+        <button 
+            class="accordion-button" 
+            [ngClass]="{'collapsed': !isSelected}"
+            type="button" 
+            data-bs-toggle="collapse" 
+            [attr.data-bs-target]="'#collapse' + index" 
+            [attr.aria-expanded]="isSelected" 
+            (click)="toggleAccordion()"
+        >
+        chapter°{{index + 1}} : {{ chapter.title }}
+      </button>
+    </h2>
+    <div 
+        [id]="'collapse' + index" 
+        class="accordion-collapse collapse" 
+        [ngClass]="{'show': isSelected}"
+    >
+      <div class="accordion-body">
+        <p>{{ chapter.description }}</p>
+        <a 
+            [routerLink]="['/courses/chapters', chapter.id]" 
+            class="card-link"
+        >show details</a>
+      </div>
+    </div>
+  </div>

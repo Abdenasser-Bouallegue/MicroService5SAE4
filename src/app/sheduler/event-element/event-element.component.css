@@ -1,0 +1,34 @@
+.event-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .private {
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  .time {
+    margin-top: 5px;
+  }
+
+  .participate-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .participate-button:hover {
+    background-color: #0056b3;
+  }

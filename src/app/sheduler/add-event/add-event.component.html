@@ -1,0 +1,68 @@
+<p>care to add an event? </p> <button class="btn btn-outline-primary" (click)="addEventDialogOpenHandler()">{{!addEventDialogOpen?'add event':'close'}}</button>
+
+<div class="card m-3" *ngIf="addEventDialogOpen">
+    <div class="card-body">
+        <h5 class="card-title">add event</h5>
+        <br>
+        <a [ngClass]="isPrivateEvent?'is-private':''" class="public-private card-link" (click)="privateEventHandler()">private event</a>
+        <a [ngClass]="!isPrivateEvent?'is-public':''" class="public-private card-link" (click)="publicEventHandler()">public event</a>
+        <br>
+        <br>
+        <br>
+        <div class="date-picker-container">
+            <p>day:</p> <input style="flex: 1;" type="date" [(ngModel)]="date" (change)="handleDatePicker()"/>
+            <p>from:</p>
+            <select [(ngModel)]="beginTimeHour" (change)="beginTimeHourChanged()" name="etat" id="etat" class="form-select time-picker">
+                <option *ngFor="let hour of HOURS" [value]="hour">{{hour}}</option>
+            </select> 
+            <select [(ngModel)]="beginTimeMinutes" (change)="beginTimeMinutesChanged()" name="etat" id="etat" class="form-select time-picker">
+                <option *ngFor="let min of MINUTES" [value]="min">{{min}}</option>
+            </select>
+            <p>to:</p>
+            <select [(ngModel)]="endTimeHour" (change)="endTimeHourChanged()" name="etat" id="etat" class="form-select time-picker">
+                <option *ngFor="let hour of HOURS" [value]="hour">{{hour}}</option>
+            </select> 
+            <select [(ngModel)]="endTimeMinutes" (change)="endTimeMinutesChanged()" name="etat" id="etat" class="form-select time-picker">
+                <option *ngFor="let min of MINUTES" [value]="min">{{min}}</option>
+            </select>
+        </div>
+        <br>
+        <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                
+                <label 
+                    for="courseLabelFormControlInput" 
+                    class="form-label"
+                >Event title</label>
+                <input 
+                    formControlName="label"
+                    type="text" 
+                    class="form-control" 
+                    id="courseLabelFormControlInput" 
+                />
+            </div>
+            <div class="mb-3">
+                <label 
+                    for="courseDescriptionFormControlTextarea" 
+                    class="form-label"
+                >Event Description</label>
+                <textarea 
+                    formControlName="description"
+                    class="form-control" 
+                    id="courseDescriptionFormControlTextarea" 
+                    rows="3"
+                ></textarea>
+            </div>
+            <div class="d-flex align-items-center">
+                <button 
+                    class="btn btn-outline-success" 
+                    value="submit" 
+                    type="submit"
+                    [disabled]="!isFormAttributesValid()"
+                >save Event</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<scraping-duck *ngIf="!isPrivateEvent && showDuck" (closeSignal)="closeDuck($event)"></scraping-duck>

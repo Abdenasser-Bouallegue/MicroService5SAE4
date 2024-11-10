@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header">
+        <h3>add a new course</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label 
+                    for="courseLabelFormControlInput" 
+                    class="form-label"
+                >Course Label</label>
+                <input 
+                    formControlName="courseLabel"
+                    type="text" 
+                    class="form-control" 
+                    id="courseLabelFormControlInput" 
+                />
+            </div>
+            <div class="mb-3">
+                <label 
+                    for="courseDescriptionFormControlTextarea" 
+                    class="form-label"
+                >Course Description</label>
+                <textarea 
+                    formControlName="courseDescription"
+                    class="form-control" 
+                    id="courseDescriptionFormControlTextarea" 
+                    rows="3"
+                ></textarea>
+            </div>
+            <div class="d-flex align-items-center">
+                <button 
+                    class="btn btn-outline-secondary" 
+                    value="submit" 
+                    type="submit"
+                >save current course</button> <small> this goes without adding chapters, as more will be added soon</small>
+                <button 
+                    class="btn btn-primary ms-auto"
+                    (click)="sendDataToService()"
+                >save and add chapters</button>
+            </div>
+        </form>
+    </div>
+</div>

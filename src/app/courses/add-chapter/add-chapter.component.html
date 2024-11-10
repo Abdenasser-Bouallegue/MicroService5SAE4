@@ -1,0 +1,42 @@
+<p>add-chapter works!</p>
+
+{{ course | json }}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ course.label }}</h5>
+        <p class="card-text">{{ course.description }}</p>
+    </div>
+</div>
+
+<hr>
+<h4>add chapters</h4>
+<hr>
+
+<form [formGroup]="chapterForm" (ngSubmit)="submit()">
+    <div formArrayName="chapters">
+        <div *ngFor="let chapter of chaptersFormArray.controls; let i = index" class="question-group">
+            <div [formGroupName]="i">
+            <!-- Question text -->
+                <label for="title">chapter {{ i + 1 }} title:</label>
+                <input type="text" id="title" formControlName="title" class="form-control">
+                <label for="description">chapter {{ i + 1 }} description:</label>
+                <input type="text" id="description" formControlName="description" class="form-control">
+            </div>
+
+            <br>
+            <br>
+
+            <!-- Button to remove question -->
+            <button type="button" class="btn btn-primary" (click)="removeChapter(i)">Remove chapter</button>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Button to add question -->
+    <button type="button" class="btn btn-primary" (click)="addChapter()">Add Chapter</button>
+    <br> <br>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-success-dark">Submit</button>
+</form>

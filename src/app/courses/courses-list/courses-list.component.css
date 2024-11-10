@@ -1,0 +1,21 @@
+.paginator-bar {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.paginator-counter {
+    display: flex;
+}
+
+.page-index-box {
+    margin: 0 1em;
+    width: 2.5em;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    outline: 1px solid #c8b6b6;
+}
