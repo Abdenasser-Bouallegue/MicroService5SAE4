@@ -36,8 +36,8 @@ public class quizController {
 
     // Endpoint to update an existing quiz
     @PutMapping("/update/{quizId}")
-    public Quiz updateQuiz(@PathVariable Long quizId, @RequestBody Quiz updatedQuiz) {
-           return quizService.updateQuiz(updatedQuiz);
+    public Quiz update( @RequestBody Quiz forum ){
+        return quizService.updateQuiz(forum);
     }
     @DeleteMapping("/delete/{quizId}")
     public void deleteQuiz(@PathVariable Long quizId) {

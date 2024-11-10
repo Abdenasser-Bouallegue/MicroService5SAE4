@@ -9,7 +9,7 @@ import java.util.List;
 public interface QuizService {
     Quiz getQuizById(Long quizId);
     Quiz saveQuiz(Quiz quiz);
-    Quiz updateQuiz(Quiz quiz);
+    public Quiz updateQuiz(Quiz quiz);
     void deleteQuiz(Long quizId);
     List <Quiz> getAllQuizzes();
 }
