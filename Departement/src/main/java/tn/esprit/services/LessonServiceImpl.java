@@ -62,4 +62,11 @@ public class LessonServiceImpl implements LessonService {
 
         return lessonRepository.save(existingLesson);
     }
+
+
+    @Override
+    public List<Lesson> searchLesson(String text) {
+        return lessonRepository.findBySubjectContains(text);
+    }
+
 }

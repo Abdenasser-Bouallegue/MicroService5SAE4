@@ -13,5 +13,5 @@ public interface LessonService {
     Lesson createLesson(Lesson lesson);
     void deleteLesson(Long idLesson);
    Lesson updateLesson(Long idLesson, Lesson lesson);
-
+    List<Lesson> searchLesson(String text);
 }

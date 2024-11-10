@@ -47,6 +47,11 @@ public class ApiGateway {
                         r -> r.path("/lessons/updateLesson/{id}")
                                 .and().method(HttpMethod.PUT)
                                 .uri("lb://dep-service/lessons/updateLesson")
+                ).route(
+                        "dep-service",
+                        r -> r.path("/lessons/search")
+                                .and().method(HttpMethod.GET)
+                                .uri("lb://dep-service/lessons/search")
                 )
                 .build();
     }

@@ -40,5 +40,8 @@ public class LessonController {
     public Lesson UpdatSiteRadio(@PathVariable Long idLesson, @RequestBody Lesson lesson) {
         return lessonService.updateLesson(idLesson, lesson);
     }
-
+    @GetMapping("/search")
+    public List<Lesson> searchLesson(@RequestParam("text") String text) {
+        return lessonService.searchLesson(text);
+    }
 }
