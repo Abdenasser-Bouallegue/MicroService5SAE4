@@ -9,6 +9,7 @@ public interface ICourseService {
     Course getCourseById(String courseId);
     Course addCourse(Course course);
     int deleteCourse(String courseId);
+    Course updateCourse(Course course);
 
 
 }

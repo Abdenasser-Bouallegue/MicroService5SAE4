@@ -229,6 +229,9 @@ public class ApiGateway {
                         r -> r.path("/quiz/delete/{quizId}")
                                 .and().method(HttpMethod.DELETE)
                                 .uri("lb://quiz-service/quiz/delete")
+                ).route(p -> p
+                        .path("/courses/update/**") // Match the path without the {id}
+                        .uri("lb://courses-service/courses/update/") // Route to a fixed path on the service
                 )
                 .build();
     }
