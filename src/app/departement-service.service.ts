@@ -34,7 +34,9 @@ export class DepartementServiceService {
     );
   }
 
-
+  search(text: string): Observable<any> {
+    return this.httpclient.get(`${this.apiUrl}/search?text=${text}`);
+  }
   
 
   }

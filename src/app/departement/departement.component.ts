@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DepartementComponent implements OnInit {
 lessons: Lesson[] = [];
+searchText: string;
 
 constructor(private departementservice: DepartementServiceService, private router: Router,private toastr: ToastrService) { }
 ngOnInit(): void {
@@ -48,5 +49,10 @@ onDeleteLesson(idLesson: number): void {
       }
     );
   }
+}
+search(event) {
+  this.departementservice.search(this.searchText).subscribe((data) => {
+    this.lessons = data;
+  });
 }
 }
