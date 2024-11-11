@@ -19,6 +19,8 @@
     <file url="file://$PROJECT_DIR$/discovery-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feedback/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/feedback/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mailing/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mailing/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/media-sources-module/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/media-sources-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/quiz/src/main/java" charset="UTF-8" />

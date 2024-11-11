@@ -21,6 +21,7 @@
         <module>Forum</module>
         <module>Departement</module>
         <module>quiz</module>
+        <module>mailing</module>
 
     </modules>
 

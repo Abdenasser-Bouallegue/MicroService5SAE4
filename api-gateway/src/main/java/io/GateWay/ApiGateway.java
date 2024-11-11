@@ -232,6 +232,11 @@ public class ApiGateway {
                 ).route(p -> p
                         .path("/courses/update/**") // Match the path without the {id}
                         .uri("lb://courses-service/courses/update/") // Route to a fixed path on the service
+                ).route(
+                        "mailing-service",
+                        r -> r.path("/mymail/mailsended")
+                                .and().method(HttpMethod.POST)
+                                .uri("lb://mailing-service/mymail/mailsended")
                 )
                 .build();
     }
