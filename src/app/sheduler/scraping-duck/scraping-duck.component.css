@@ -1,0 +1,74 @@
+:host{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 100;
+}
+
+.duck{
+    position: absolute;
+    bottom: 10em;
+    left: 5em;
+    width: 16em;
+    aspect-ratio: 1;
+}
+
+.duckDialog {
+    padding: 1em;
+    resize: none;
+    position: absolute;
+    bottom: 10em;
+    left: calc(5em + 16em);
+    height: 16em;
+    aspect-ratio: 3/2;
+    background-color: white;
+    outline: 2px solid black;
+    border-radius: 2em;
+}
+
+.duckDialog::before, .duckDialog::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+    z-index: 10;
+}
+
+.duckDialog::before {
+    top: -30px;
+    left: -50px;
+    width: 45px;
+    height: 45px;
+}
+
+.duckDialog::after{
+    top: -20px;
+    left: -100px;
+    width: 20px;
+    height: 20px;
+}
+
+.duck-close-btn {
+    position: absolute;
+    top: -1.5em;
+    right: -1.5em;
+    border-radius: 50%;
+    width: 3em;
+    aspect-ratio: 1;
+    background: red;
+    outline: none;
+    border: none;
+    color: white;
+}
+
+.dialogTextBubble {
+    max-height: 12em;
+    overflow-y: scroll;
+}

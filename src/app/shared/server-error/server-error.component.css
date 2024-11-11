@@ -1,0 +1,10 @@
+:host{
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+
+    display: grid;
+    place-items: center;
+    background-color: #282626a1;
+}
+

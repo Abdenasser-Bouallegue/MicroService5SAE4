@@ -1,0 +1,10 @@
+<div class="event-container">
+    <div class="label">{{ calendarEvent.label }}</div>
+    <div class="description">{{ calendarEvent.description }}</div>
+    <div class="private">{{ calendarEvent.isPrivate ? 'Private' : 'Public' }}</div>
+    <div class="time">
+      <span class="begin-time">Start: {{ calendarEvent.beginTime }}</span>
+      <span class="end-time">End: {{ calendarEvent.endTime }}</span>
+    </div>
+    <button (click)="participate.emit(calendarEvent)" class="participate-button">Participate</button>
+  </div>

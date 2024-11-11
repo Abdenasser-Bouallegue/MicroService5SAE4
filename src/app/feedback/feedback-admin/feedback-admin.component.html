@@ -1,0 +1,101 @@
+
+<div class="main-wrapper">
+  <!-- Page Wrapper -->
+
+  <div class="page-content">
+      <div class="container">
+
+          <div class="row">
+              <div class="col-xl-9 col-lg-8 col-md-12">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="settings-widget">
+                              <div class="settings-inner-blk p-0">
+                                  <div class="sell-course-head comman-space">
+
+                                      <h3 style="text-align: center;">Feedbacks</h3>
+                                  </div>
+                                  <div class="comman-space pb-0">
+                                      <div class="instruct-search-blk mb-0">
+                                          <div class="show-filter all-select-blk">
+                                              <form action="#">
+                                                  <div class="row gx-2 align-items-center">
+                                                      <div class="col-md-6 col-lg-3 col-item">
+                                                          <div class="input-block select-form mb-1">
+                                                              <select class="form-control select" name="category" [(ngModel)]="selectedCategory" (change)="showData(selectedCategory)">
+                                                                  <option value="All">All</option>
+                                                                  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                                                              </select>
+                                                          </div>
+                                                      </div>
+
+                                                      <div class="col-md-6 col-lg-3 col-item">
+                                                        <div class="input-block select-form mb-1">
+                                                          <select class="form-select select" name="sellist1">
+                                                              <option disabled selected>Sort</option>
+                                                              <option>Ascending</option>
+                                                              <option>Descending</option>
+                                                          </select>
+                                                      </div>
+                                                      </div>
+                                                      <div class="col-md-6 col-lg-3 col-item">
+                                                        <div class="widget-btn">
+                                                          <a class="btn btn-info-light" style="background-color:#392C7D;" routerLink="/feedbackarchived">Archived</a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <!-- Iterate over filtered feedbacks based on selected category -->
+                                  <div *ngFor="let feedback of pagedFeedbacks" class="comman-space bdr-bottom-line">
+                                    <div class="instruct-review-blk">
+                                        <div class="review-item">
+                                            <div class="instructor-wrap border-0 m-0">
+                                                <div class="about-instructor">
+                                                    <div class="abt-instructor-img">
+                                                        <a href="instructor-profile.html"><img src="assets/img/user/user1.jpg" alt="img" class="img-fluid"></a>
+                                                    </div>
+                                                    <div class="instructor-detail">
+                                                        <h5><a href="instructor-profile.html">{{ feedback.user_id }}</a></h5>
+                                                        <!-- Display feedback.reclamationCategory -->
+                                                        <p>{{ feedback.reclamationCategory }}</p>
+                                                        <p>{{ feedback.title }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Display feedback.body -->
+                                            <p class="rev-info">{{ feedback.body }}</p>
+                                            <a href="javascript:void(0);" class="btn btn-reply" (click)="archiveFeedback(feedback)">
+                                                <i class="feather-corner-up-left"></i> Archived
+                                            </a>
+                                            <a href="javascript:void(0);" class="btn btn-reply" style="margin-left: 2%;" (click)="forwardFeedback(feedback)">
+                                              <i class="feather-corner-up-left"></i> Forward
+                                          </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pagination -->
+                                <div *ngIf="totalPages > 1">
+                                    <ul class="pagination">
+                                        <li class="page-item" *ngFor="let page of pages">
+                                            <a class="page-link" href="javascript:void(0);" (click)="changePage(page)">{{ page }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- /Instructor Dashboard -->
+
+          </div>
+      </div>
+  </div>
+</div>
+

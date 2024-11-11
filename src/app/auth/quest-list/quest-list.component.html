@@ -1,0 +1,126 @@
+<app-navbar></app-navbar>
+<div class="card mb-5 mb-xl-8"style="margin-top: 50px;margin-left:20px;margin-right:20px">
+    
+    <div class="card-body py-3">
+        <!-- <input type="text" class="form-control mb-3" placeholder="Search by First Name" [(ngModel)]="searchTerm"> -->
+
+        <div class="table-responsive">
+            <!--begin::Table-->
+            <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
+                <!--begin::Table head-->
+                <thead>
+                    <tr class="fw-bolder text-muted">
+                  
+                        <th class="min-w-30px">Id</th>
+                        <th class="min-w-120px">First Name</th>
+                        <th class="min-w-120px">Last Name</th>
+                        <th class="min-w-120px">Email</th>
+                        <th class="min-w-120px">Role</th>
+                        <th class="min-w-120px">Birthday</th>
+                        <th class="min-w-120px">Phone Number</th>
+                        <th class="min-w-120px">Registration Number</th>
+                        <th class="min-w-120px">NCIN</th>
+                        <th class="min-w-120px">Company</th>
+                        <th class="min-w-120px "></th>
+                        <th class="min-w-120px "></th>
+
+                    </tr>
+                </thead>
+                <!--end::Table head-->
+                <!--begin::Table body-->
+                <tbody>
+                    <tr *ngFor="let user of quests">
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.id }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.firstname }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.lastname }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.email }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.role }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.birthday | date:'yyyy-MM-dd' }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.phoneNumber }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.registrationNumber }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.ncin }}</td>
+    
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.company }}</td>
+                       
+                       
+                        <td class="text-end">
+                            <button class="btn btn-success" (click)="acceptQuest(user.id)">
+                              <i class="fa-solid fa-user-check fa-lg"></i> Accept
+                            </button>
+                           
+                        </td>
+                        <td>
+                          <button class="btn btn-danger"(click)="rejectQuest(user.id)" >
+                            <i class="fa-solid fa-user-slash fa-lg"></i> Reject
+                          </button>
+                        </td>
+                    </tr>
+                  
+                </tbody>
+                <!--end::Table body-->
+            </table>
+            <!--end::Table-->
+        </div>
+        <!--end::Table container-->
+    </div>
+    <!--begin::Body-->
+</div>
+
+
+
+<!-- <app-navbar></app-navbar>
+<div class="settings-widget" >
+    <div class="settings-inner-blk p-0">
+        <div class="comman-space pb-0">
+            <div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+                <h3>Liste Quest</h3>
+            </div>
+            <div class="settings-tickets-blk table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">NCIN</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Registration Number</th>
+                        <th scope="col">Role</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of quests">
+                        <td>{{ user.firstname }}</td>
+                        <td>{{ user.lastname }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.birthday }}</td>
+                        <td>{{ user.company }}</td>
+                        <td>{{ user.ncin }}</td>
+                        <td>{{ user.phoneNumber }}</td>
+                        <td>{{ user.registrationNumber }}</td>
+                        <td>{{ user.role }}</td>
+                        <img  *ngIf="user.image" [src]="getAdminPhotoUrl(user)" class="i" alt="Uploaded Image">
+
+                        <td>
+                          <button class="btn btn-success" (click)="acceptQuest(user.id)">
+                            <i class="fa-solid fa-user-check fa-lg"></i> Accept
+                          </button>
+                        </td>
+                        <td>
+                          <button class="btn btn-danger"(click)="rejectQuest(user.id)" >
+                            <i class="fa-solid fa-user-slash fa-lg"></i> Reject
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  
+
+            </div>									
+        </div>
+    </div>
+</div> -->

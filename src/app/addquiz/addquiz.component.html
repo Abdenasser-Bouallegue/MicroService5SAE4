@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Add New Quiz</h2>
+
+  <form (ngSubmit)="addQuiz()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="quiz.title" name="title" required />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="quiz.description" name="description" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duration (in minutes)</label>
+      <input type="number" id="duration" class="form-control" [(ngModel)]="quiz.duration" name="duration" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="loading">Add Quiz</button>
+  </form>
+
+  <div *ngIf="loading" class="loading">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+</div>

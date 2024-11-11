@@ -1,0 +1,20 @@
+.date-picker-container{
+    display: flex;
+}
+
+.public-private{
+    cursor: pointer;
+    padding: 0.5em 1.25em;
+}
+
+.is-private{
+    outline: 1px solid green;
+}
+
+.is-public{
+    outline: 1px solid limegreen;
+}
+
+.time-picker{
+    width: 6em;
+}
