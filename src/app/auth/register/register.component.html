@@ -1,0 +1,332 @@
+
+<div *ngIf="!authResponse.mfaEnabled" class="main-wrapper">
+    
+  <header class="header header-page">
+      <div class="header-fixed">
+          <nav class="navbar navbar-expand-lg header-nav scroll-sticky">
+              <div class="container header-border">
+                  <div class="navbar-header">
+                      <a id="mobile_btn" href="javascript:void(0);">
+                          <span class="bar-icon">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </span>
+                      </a>
+                      <a href="index-2.html" class="navbar-brand logo">
+                          <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+                      </a>
+                  </div>
+                  <div class="main-menu-wrapper">
+                      <div class="menu-header">
+                          <a href="index-2.html" class="menu-logo">
+                              <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+                          </a>
+                          <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                              <i class="fas fa-times"></i>
+                          </a>
+                      </div>
+                      <ul class="main-nav">
+                        
+                     
+                          <li class="login-link">
+                              <a href="login.html">Login / Signup</a>
+                          </li>
+                      </ul>		 
+                  </div>		 
+                  <ul class="nav header-navbar-rht">
+                      <li class="nav-item">
+                          <a class="nav-link header-sign" routerLink="/login" href="login.html">Signin</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link header-login" href="register.html">Signup</a>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+  </header>
+ 
+  <section class="course-content" style="padding-top: 23PX;">
+      <div class="container">
+          
+          <div class="title-sec">
+              <div class="row">
+                  <div class="col-sm-6 col-lg-5">
+                      <h2>Registration Pending</h2>
+                      <img src="assets/img/login-img.png" class="img-fluid" alt="Logo">
+                  </div>	
+                  <div class="col-sm-6 col-lg-7">
+                      <div class="checkout-form personal-address add-course-info ">
+                         
+                          <div class="container">
+                              <form [formGroup]="questForm" (ngSubmit)="addQuest()">
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">First Name</label>
+                                      <input type="text" class="form-control" placeholder="Enter your first Name" formControlName="firstname">
+                                      <div *ngIf="questForm.get('firstname').errors?.['required'] && questForm.get('firstname').touched" class="text-danger">
+                                        First Name is required
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Last Name</label>
+                                      <input type="text" class="form-control" placeholder="Enter your last Name" formControlName="lastname">
+                                      <div *ngIf="questForm.get('lastname').errors?.['required'] && questForm.get('lastname').touched" class="text-danger">
+                                        Last Name is required
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Phone Number</label>
+                                      <input type="text" class="form-control" placeholder="Enter your Phone" formControlName="phoneNumber">
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Email</label>
+                                      <input type="text" class="form-control" placeholder="Enter your Email" formControlName="email">
+                                      <div *ngIf="questForm.get('email').errors?.['required'] && questForm.get('email').touched" class="text-danger">
+                                        Email is required
+                                      </div>
+                                      <div *ngIf="questForm.get('email').errors?.['email'] && questForm.get('email').touched" class="text-danger">
+                                        Please enter a valid email address
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Birthday</label>
+                                      <input type="date" class="form-control" placeholder="Birth of Date" formControlName="birthday">
+                                      <div *ngIf="questForm.get('birthday').errors?.['required'] && questForm.get('birthday').touched" class="text-danger">
+                                        Birthday is required
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Role</label>
+                                      <select class="form-select select country-select" formControlName="role">
+                                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                                      </select>
+                                      <div *ngIf="questForm.get('role').errors?.['required'] && questForm.get('role').touched" class="text-danger">
+                                        Role is required
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Registration Number</label>
+                                      <input type="text" class="form-control" placeholder="Registration Number" formControlName="registrationNumber">
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">National Card Identification Number (NCIN)</label>
+                                      <input type="text" class="form-control" placeholder="National Card Identification Number" formControlName="ncin">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Company</label>
+                                      <input type="text" class="form-control" placeholder="Enter your Company" formControlName="company">
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="input-block">
+                                      <label class="form-control-label">Password</label>
+                                      <input type="password" class="form-control" placeholder="Enter your password" formControlName="password">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">                            
+                                </div>
+                                  <div>
+                                  <input type="file" (change)="uploadFile($event)" required>
+                                  <div class="form-group">
+                                    <input id="mfaEnabled" formControlName="mfaEnabled" type="checkbox">
+                                    <label for="mfaEnabled">Enable 2FA (Two Factors Authentication)</label>
+                                  </div>
+                                </div>
+                                <div class="update-profile">
+                                  <button type="submit" class="btn btn-primary" [disabled]="questForm.invalid">Confirm</button>
+                                </div>
+                              </form>
+                            </div>
+                      </div>
+                  </div>	
+              </div>	
+          </div>	
+          
+          <!-- Notifications List -->					
+        
+          <!-- /Notifications List -->	
+          
+      </div>
+  </section>
+
+ 
+</div>
+
+
+
+<!-- <div class="container" *ngIf="!authResponse.mfaEnabled">
+  <div class="success-message-panel" *ngIf="message">
+    <div class="success-icon">&#10004;</div>
+    <div class="success-message">{{message}}</div>
+  </div>
+
+  <h2>Register</h2>
+  <form (ngSubmit)="registerUser()">
+    <div class="form-group">
+      <label for="firstname">First name</label>
+      <input
+        id="firstname"
+        name="firstname"
+        required type="text"
+        [(ngModel)]="registerRequest.firstname"
+      >
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last name</label>
+      <input
+        id="lastname"
+        name="lastname"
+        required type="text"
+        [(ngModel)]="registerRequest.lastname"
+      >
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        required type="text"
+        [(ngModel)]="registerRequest.email"
+      >
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        required type="password"
+        [(ngModel)]="registerRequest.password"
+      >
+    </div>
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input
+        id="birthday"
+        name="birthday"
+        type="date"
+        [(ngModel)]="registerRequest.birthday"
+      >
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        id="phoneNumber"
+        name="phoneNumber"
+        type="text"
+        [(ngModel)]="registerRequest.phoneNumber"
+      >
+    </div>
+    <div class="form-group">
+      <label for="registrationNumber">Registration Number</label>
+      <input
+        id="registrationNumber"
+        name="registrationNumber"
+        type="text"
+        [(ngModel)]="registerRequest.registrationNumber"
+      >
+    </div>
+    <div class="form-group">
+      <label for="ncin">NCIN</label>
+      <input
+        id="ncin"
+        name="ncin"
+        type="text"
+        [(ngModel)]="registerRequest.ncin"
+      >
+    </div>
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input
+        id="company"
+        name="company"
+        type="text"
+        [(ngModel)]="registerRequest.company"
+      >
+    </div>
+   <div class="form-group">
+    <label for="image">Profile Picture</label>
+    <input
+      type="file"
+      id="image"
+      name="image"
+      (change)="uploadFile($event)"
+    
+    >
+  </div>
+    <div class="form-group">
+      <label for="role">Role</label><br>
+      <input type="radio" id="student" name="role" value="STUDENT" [(ngModel)]="registerRequest.role">
+      <label for="student">Student</label><br>
+      <input type="radio" id="recruiter" name="role" value="RECRUITER" [(ngModel)]="registerRequest.role">
+      <label for="recruiter">Recruiter</label>
+  </div>
+  
+    <div class="form-group">
+      <input
+        id="rememberMe"
+        name="rememberMe"
+        type="checkbox"
+        [(ngModel)]="registerRequest.mfaEnabled"
+      >
+      <label for="rememberMe">Enable 2FA (Two Factors Authentication)</label>
+    </div>
+    <button type="submit">Register</button>
+    <a routerLink="/login">Login</a>
+  </form>
+</div> -->
+
+<div class="container" *ngIf="authResponse.mfaEnabled">
+
+  <div class="success-message-panel" *ngIf="message">
+    <div class="success-icon">&#10004;</div>
+    <div class="success-message">{{message}}</div>
+  </div>
+
+  <h2>Set Up Two-Factor Authentication</h2>
+  <div class="qr-code">
+    <img [src]="authResponse.secretImageUri" alt="QR Code">
+  </div>
+  <div class="form-group">
+    <label for="validationCode">Enter 6 digits Validation Code Generated by the app</label>
+    <input
+      type="text"
+      id="validationCode"
+      name="validationCode"
+      required
+      [(ngModel)]="otpCode"
+    >
+  </div>
+  <button
+    type="button"
+    (click)="verifyTfa()"
+    [class.button-disabled]="otpCode.length < 6"
+  >Verify code</button>
+</div>

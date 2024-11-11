@@ -1,0 +1,9 @@
+.disabled-button {
+  border-color: darkgray; /* Change border color to dark gray */
+  opacity: 0.7; /* Reduce opacity */
+  color: #000;
+}
+.button-container {
+  display: flex;
+  gap: 15px;
+}

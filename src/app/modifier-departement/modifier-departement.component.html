@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4 text-primary">Modifier la leçon</h3>
+
+  <form [formGroup]="lessonForm" (ngSubmit)="onSubmit()">
+    <!-- Sujet -->
+    <div class="form-group">
+      <label for="subject">Sujet</label>
+      <input id="subject" formControlName="subject" type="text" class="form-control" />
+    </div>
+
+    <!-- Professeur -->
+    <div class="form-group">
+      <label for="teacher">Professeur</label>
+      <input id="teacher" formControlName="teacher" type="text" class="form-control" />
+    </div>
+
+    <!-- Groupe Étudiant -->
+    <div class="form-group">
+      <label for="studentGroup">Groupe Étudiant</label>
+      <input id="studentGroup" formControlName="studentGroup" type="text" class="form-control" />
+    </div>
+
+    <!-- Section Salle -->
+    <h5 class="mt-4">Salle</h5>
+    <div formGroupName="room">
+      <div class="form-group">
+        <label for="roomName">Nom de la Salle</label>
+        <input id="roomName" formControlName="name" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <!-- Section Horaire -->
+    <h5 class="mt-4">Horaire</h5>
+    <div formGroupName="timeslot">
+      <div class="form-group">
+        <label for="dayOfWeek">Jour</label>
+        <input id="dayOfWeek" formControlName="dayOfWeek" type="text" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="startTime">Heure de début</label>
+        <input id="startTime" formControlName="startTime" type="time" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="endTime">Heure de fin</label>
+        <input id="endTime" formControlName="endTime" type="time" class="form-control" />
+      </div>
+    </div>
+
+    <!-- Bouton Soumettre -->
+    <button type="submit" class="btn btn-primary mt-3">Enregistrer les modifications</button>
+  </form>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+</div>

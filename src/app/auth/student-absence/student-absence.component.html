@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="card mb-5 mb-xl-8"style="margin-top: 50px;margin-left:20px;margin-right:20px">
+    
+    <div class="card-body py-3">
+        <!-- <input type="text" class="form-control mb-3" placeholder="Search by First Name" [(ngModel)]="searchTerm"> -->
+
+        <div class="table-responsive">
+            <!--begin::Table-->
+            <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3" #table>
+                <!--begin::Table head-->
+                <thead>
+                    <tr class="fw-bolder text-muted">
+                  
+                        <th class="min-w-30px">Id</th>
+                        <th class="min-w-120px">First Name</th>
+                        <th class="min-w-120px">Last Name</th>
+                        <th class="min-w-120px">Email</th>
+                        <th class="min-w-120px">Phone Number</th>
+                        <th class="min-w-120px">Registration Number</th>
+                        <th class="min-w-120px">Date Of absence</th>
+                        <th class="min-w-120px">Classe</th>
+                        <th class="min-w-120px "></th>
+                     
+
+                    </tr>
+                </thead>
+                <!--end::Table head-->
+                <!--begin::Table body-->
+                <tbody>
+                    <tr *ngFor="let user of studentabsent ">
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.id }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.firstname }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.lastname }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.email }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.phoneNumber }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.registrationNumber }}</td>
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.date | date: 'dd/MM/yyyy HH'}}H</td>
+
+                        <td class="text-dark fw-bolder text-hover-primary fs-6">{{ user.claase }}</td>
+                       
+                       
+                    
+                    </tr>
+                  
+                </tbody>
+                <!--end::Table body-->
+            </table>
+            <button (click)="downloadPDF()">Download PDF</button>
+
+            <button type="button" class="btn btn-primary" (click)="openSignatureModal()">Open Signature Modal</button>
+
+            <div class="modal fade" id="signatureModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Capture Signature</h5>
+                   
+                  </div>
+                  <div class="modal-body">
+                    <signature-pad [options]="signaturePadOptions" (onEnd)="drawComplete()"></signature-pad>
+                  </div>
+                  <div class="modal-footer">
+                    <button (click)="closeSignatureModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button (click)="saveSignature()">save</button>
+                </div>
+                </div>
+              </div>
+            </div>
+                    </div>
+        <!--end::Table container-->
+    </div>
+    <!--begin::Body-->
+</div>
+
+

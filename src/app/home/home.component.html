@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            background-color: #ff4500;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #e03e00;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px;
+            background-color: #fff;
+        }
+
+        .feature-card {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .about {
+            background-color: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta {
+            background-color: #28a745;
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta a {
+            background-color: #ffffff;
+            color: #28a745;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta a:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #ff4500;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #ff4500;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #e03e00;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>E-Learning Platform</h1>
+        <p>Learn Anything. Anywhere. Anytime.</p>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>Take Your Learning to the Next Level</h2>
+            <p>Join thousands of learners who are mastering new skills with our expert-led courses.</p>
+            <a href="#courses">Explore Courses</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Wide Range of Courses</h3>
+            <p>Choose from thousands of courses in various subjects and skill levels.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-users"></i>
+            <h3>Expert Instructors</h3>
+            <p>Learn from experienced instructors who are experts in their field.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-certificate"></i>
+            <h3>Earn Certificates</h3>
+            <p>Get certified and enhance your resume with our accredited certifications.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>Our platform offers high-quality, affordable, and accessible education to help people unlock their potential.
+            Whether you're looking to boost your career or learn a new skill, we've got you covered with the best resources
+            and tools to help you succeed.</p>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Start Your Learning Journey?</h2>
+        <p>Sign up today and get started with your first course.</p>
+        <a href="#signup">Get Started</a>
+    </section>
+
+    <section id="courses" class="features">
+        <div class="feature-card">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+            <p>Learn how to build websites and web applications from scratch.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Data Science</h3>
+            <p>Analyze data and gain insights using Python, R, and other tools.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-pencil-alt"></i>
+            <h3>Graphic Design</h3>
+            <p>Create stunning visuals and designs for websites, branding, and more.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 E-Learning Platform. All Rights Reserved.</p>
+        <p>For more information, visit our <a href="#">Terms of Service</a> or <a href="#">Privacy Policy</a>.</p>
+    </footer>
+
+</body>
+
+</html>

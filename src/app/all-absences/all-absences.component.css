@@ -1,0 +1,83 @@
+.absences-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.absences-container h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.absences-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.absences-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.absences-container li:hover {
+  background-color: #f1f1f1;
+}
+
+.absences-container li p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.absences-container button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: white;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.absences-container button:hover {
+  background-color: #c0392b;
+}
+
+.absences-container button:focus {
+  outline: none;
+}
+
+.absences-container .no-absences-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .absences-container {
+    padding: 15px;
+  }
+
+  .absences-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .absences-container li {
+    padding: 10px;
+  }
+
+  .absences-container button {
+    padding: 6px 12px;
+  }
+}

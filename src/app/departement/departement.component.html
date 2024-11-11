@@ -1,0 +1,215 @@
+
+
+
+	<body>
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+
+			<!-- Header -->
+
+
+
+
+			<!--Dashbord Student -->
+			<div class="page-content">
+				<div class="container">
+					<div class="row">
+
+						<!-- Profile Details -->
+						<div class="col-xl-12 col-md-12">
+
+							<div class="settings-widget">
+								<div class="settings-inner-blk p-0">
+									<div class="comman-space pb-0">
+										<div class="filter-grp ticket-grp d-flex align-items-center justify-content-between">
+
+										</div>
+
+
+                                    <div class="container mt-4">
+										<button class="btn btn-primary" routerLink="/ajouterdepartement">Ajouter une leçon</button>
+										</div>
+                                         <h3 class="text-center mb-4 " style="color: #007bff;">Liste des leçons</h3>
+										 <div class="row">
+											<div class="col-xl-4 col-md-6 col-12 mb-1">
+											  <div class="form-group">
+												<h5 for="basicInput">Chercher des leçons</h5>
+												<input
+												  type="text"
+												  class="form-control"
+												  id="basicInput"
+												  placeholder="Saisir un text"
+												  (keyup)="search($event)"
+												  [(ngModel)]="searchText"
+												/>
+											  </div>
+											</div>
+										  </div>
+                                    <table class="table table-striped table-hover table-bordered text-center mb-0">
+                                                <thead class="table-primary">
+                                                  <tr>
+                                                    <th scope="col">Numero leçon</th>
+                                                    <th scope="col">Sujet</th>
+                                                    <th scope="col">Professeur</th>
+                                                    <th scope="col">Groupe Étudiant</th>
+                                                    <th scope="col">Salle</th>
+                                                    <th scope="col">Horaire</th>
+                                                    <th scope="col">Action</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr *ngFor="let lesson of lessons">
+                                                    <td>{{ lesson.idLesson }}</td>
+                                                    <td>{{ lesson.subject }}</td>
+                                                    <td>{{ lesson.teacher }}</td>
+                                                    <td>{{ lesson.studentGroup }}</td>
+                                                    <td>{{ lesson.room?.name }}</td>
+                                                    <td>{{ lesson.timeslot?.dayOfWeek }} {{ lesson.timeslot?.startTime }} - {{ lesson.timeslot?.endTime }}</td>
+                                                    <td>
+                                                      <!-- Exemple d'action, comme un bouton d'édition ou de suppression -->
+                                                      <button class="btn btn-sm btn-primary" (click)="editDepartement(lesson.idLesson)">Éditer</button>
+                                                      <button class="btn btn-sm btn-danger" (click)="onDeleteLesson(lesson.idLesson)">Supprimer</button>
+                                                    </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                        </div>
+			<!-- /Dashbord Student -->
+
+			<!-- Footer -->
+			<!--footer class="footer"-->
+
+				<!-- Footer Top -->
+				<!--div class="footer-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4 col-md-6"-->
+
+								<!-- Footer Widget -->
+								<!--div class="footer-widget footer-about">
+									<div class="footer-logo">
+										<img src="/assets/img/logo.svg" alt="logo">
+									</div>
+									<div class="footer-about-content">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris</p>
+									</div>
+								</div-->
+								<!-- /Footer Widget -->
+
+							<!--/div>
+
+							<div class="col-lg-2 col-md-6"-->
+
+								<!-- Footer Widget -->
+								<!--div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Instructor</h2>
+									<ul>
+										<li><a href="instructor-profile.html">Profile</a></li>
+										<li><a href="login.html">Login</a></li>
+										<li><a href="register.html">Register</a></li>
+										<li><a href="instructor-list.html">Instructor</a></li>
+										<li><a href="deposit-instructor-dashboard.html"> Dashboard</a></li>
+									</ul>
+								</div-->
+								<!-- /Footer Widget -->
+
+							<!--/div>
+
+							<div class="col-lg-2 col-md-6"-->
+
+								<!-- Footer Widget -->
+								<!--div class="footer-widget footer-menu">
+									<h2 class="footer-title">For Student</h2>
+									<ul>
+										<li><a href="student-profile.html">Profile</a></li>
+										<li><a href="login.html">Login</a></li>
+										<li><a href="register.html">Register</a></li>
+										<li><a href="students-list.html">Student</a></li>
+										<li><a href="deposit-student-dashboard.html"> Dashboard</a></li>
+									</ul>
+								</div-->
+								<!-- /Footer Widget -->
+
+							<!--/div>
+
+							<div class="col-lg-4 col-md-6"-->
+
+								<!-- Footer Widget -->
+								<!--div class="footer-widget footer-contact">
+									<h2 class="footer-title">News letter</h2>
+									<div class="news-letter">
+										<form>
+											<input type="text" class="form-control" placeholder="Enter your email address" name="email">
+										</form>
+									</div>
+									<div class="footer-contact-info">
+										<div class="footer-address">
+											<img src="/assets/img/icon/icon-20.svg" alt="" class="img-fluid">
+											<p> 3556  Beech Street, San Francisco,<br> California, CA 94108 </p>
+										</div>
+										<p>
+											<img src="/assets/img/icon/icon-19.svg" alt="" class="img-fluid">
+											<a href="https://dreamslms.dreamstechnologies.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32564057535f415e5f4172574a535f425e571c515d5f">[email&#160;protected]</a>
+										</p>
+										<p class="mb-0">
+											<img src="/assets/img/icon/icon-21.svg" alt="" class="img-fluid">
+											+19 123-456-7890
+										</p>
+									</div>
+								</div-->
+								<!-- /Footer Widget -->
+
+							<!--/div>
+
+						</div>
+					</div>
+				</div-->
+				<!-- /Footer Top -->
+
+				<!-- Footer Bottom -->
+                <!--div class="footer-bottom">
+					<div class="container"-->
+
+						<!-- Copyright -->
+						<!--div class="copyright">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="privacy-policy">
+										<ul>
+											<li><a href="term-condition.html">Terms</a></li>
+											<li><a href="privacy-policy.html">Privacy</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="copyright-text">
+										<p class="mb-0">&copy; 2023 DreamsLMS. All rights reserved.</p>
+									</div>
+								</div>
+							</div>
+						</div-->
+						<!-- /Copyright -->
+
+					<!--/div>
+				</div-->
+				<!-- /Footer Bottom -->
+
+			<!--/footer-->
+			<!-- /Footer -->
+
+		<!--/div-->
+	   <!-- /Main Wrapper -->
+
+		<!-- jQuery -->
+		<!--script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/assets/js/jquery-3.7.1.min.js"></script-->
+
+		<!-- Bootstrap Core JS -->
+		<!--script src="/assets/js/bootstrap.bundle.min.js"></script-->
+
+		<!-- Custom JS -->
+		<!--script src="/assets/js/script.js"></script-->
+
+
+
+<!-- Mirrored from dreamslms.dreamstechnologies.com/html/deposit-instructor-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 31 Jan 2024 13:25:30 GMT -->

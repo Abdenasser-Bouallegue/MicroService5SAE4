@@ -1,0 +1,12 @@
+<div class="absences-container">
+  <h2>All Absences</h2>
+
+  <div *ngIf="absences.length === 0">No absences found.</div>
+
+  <ul *ngIf="absences.length > 0">
+    <li *ngFor="let absence of absences">
+      <p>{{ absence.firstname }} {{ absence.lastname }} - {{ absence.date | date }}</p>
+      <button (click)="deleteAbsence(absence)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Brand Logo or App Name -->
+    <a class="navbar-brand" href="#">MicroServiceApp</a>
+
+    <!-- Toggler for smaller screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Home Link -->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="'/home'">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="quizDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Feedback
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="quizDropdown">
+            <li><a class="dropdown-item" [routerLink]="'/feedback'">Add Feedback</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/myfeedback'">My feedback</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="quizDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Forum
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="quizDropdown">
+            <li><a class="dropdown-item" [routerLink]="'/forum'">Add Forum</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/mailing'">Send mail</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="quizDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Absence
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="quizDropdown">
+            <li><a class="dropdown-item" [routerLink]="'/addabs'">Add Absence</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/getallabs'">All Absence</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/mail'">mailing</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="quizDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Course
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="quizDropdown">
+            <li><a class="dropdown-item" [routerLink]="'/courses'">Add Course</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/coursesss'">All Course</a></li>
+          </ul>
+        </li>
+        <!-- Dropdown for Add Quiz and All Quizzes -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="quizDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Quizzes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="quizDropdown">
+            <li><a class="dropdown-item" [routerLink]="'/addquiz'">Add Quiz</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/allquiz'">All Quizzes</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="quizDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Departement
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="quizDropdown">
+            <li><a class="dropdown-item" [routerLink]="'/ajouterdepartement'">Add Depaartement</a></li>
+            <li><a class="dropdown-item" [routerLink]="'/departement'">All Departement</a></li>
+          </ul>
+        </li>
+
+        <!-- Edit Quiz Link -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/editquiz'">Logout</a>
+        </li>
+
+        <!-- Log out (optional, if you have authentication) -->
+        <li class="nav-item">
+          <!-- Log out link or button -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

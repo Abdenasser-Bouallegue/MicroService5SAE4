@@ -1,0 +1,16 @@
+.feild {
+    font-size: 14px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border-radius: 8px 8px !important;
+    background: #ff5360 ;
+    border: 0 !important;
+    color: white !important;
+
+
+}

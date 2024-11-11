@@ -1,0 +1,11 @@
+<div class="course-container">
+  <h2>Courses</h2>
+
+  <!-- Formulaire pour ajouter un nouveau cours -->
+  <div class="add-course-form">
+    <h3>Add Course</h3>
+    <input [(ngModel)]="newCourse.label" placeholder="Course Label" />
+    <input [(ngModel)]="newCourse.description" placeholder="Course Description" />
+    <button (click)="addCourse()">Add</button>
+  </div>
+</div>

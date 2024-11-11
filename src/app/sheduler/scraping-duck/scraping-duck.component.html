@@ -1,0 +1,9 @@
+
+<img src="/src/assets/img/cartoon-duck.png" alt="" class="duck">
+<div  name="duckDialog" id="duckDialog" class="duckDialog">
+    <button class="duck-close-btn" (click)="close(true)">X</button>
+    <div #speechBubble class="dialogTextBubble">
+        
+    </div>
+    <a class="next-speech-button" *ngIf="isSpeechLoaded && (speechToLoad < speech.length)" (click)="nextSpeech()">tell me more</a>
+</div>
