@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sarra:project xmlns:sarra="http://maven.apache.org/POM/4.0.0"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <sarra:modelVersion>4.0.0</sarra:modelVersion>
+    <sarra:parent>
+        <sarra:groupId>io.kamelbenarous</sarra:groupId>
+        <sarra:artifactId>e-learning</sarra:artifactId>
+        <sarra:version>1.0-SNAPSHOT</sarra:version>
+    </sarra:parent>
+
+    <sarra:artifactId>mailing</sarra:artifactId>
+
+    <sarra:properties>
+        <sarra:maven.compiler.source>19</sarra:maven.compiler.source>
+        <sarra:maven.compiler.target>19</sarra:maven.compiler.target>
+        <sarra:project.build.sourceEncoding>UTF-8</sarra:project.build.sourceEncoding>
+    </sarra:properties>
+    <sarra:dependencies>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.boot</sarra:groupId>
+            <sarra:artifactId>spring-boot-starter-web</sarra:artifactId>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.cloud</sarra:groupId>
+            <sarra:artifactId>spring-cloud-commons</sarra:artifactId>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.cloud</sarra:groupId>
+            <sarra:artifactId>spring-cloud-starter-netflix-eureka-client</sarra:artifactId>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.boot</sarra:groupId>
+            <sarra:artifactId>spring-boot-starter-mail</sarra:artifactId>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>javax.mail</sarra:groupId>
+            <sarra:artifactId>mail</sarra:artifactId>
+            <sarra:version>1.4.7</sarra:version>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>com.sun.mail</sarra:groupId>
+            <sarra:artifactId>jakarta.mail</sarra:artifactId>
+            <sarra:version>1.6.7</sarra:version>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.boot</sarra:groupId>
+            <sarra:artifactId>spring-boot-starter-data-jpa</sarra:artifactId>
+        </sarra:dependency>
+
+        <sarra:dependency>
+            <sarra:groupId>com.mysql</sarra:groupId>
+            <sarra:artifactId>mysql-connector-j</sarra:artifactId>
+            <sarra:scope>runtime</sarra:scope>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.boot</sarra:groupId>
+            <sarra:artifactId>spring-boot-starter-jdbc</sarra:artifactId>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>com.mysql</sarra:groupId>
+            <sarra:artifactId>mysql-connector-j</sarra:artifactId>
+            <sarra:scope>runtime</sarra:scope>
+        </sarra:dependency>
+        <sarra:dependency>
+            <sarra:groupId>org.springframework.boot</sarra:groupId>
+            <sarra:artifactId>spring-boot-starter-data-jpa</sarra:artifactId>
+        </sarra:dependency>
+    </sarra:dependencies>
+
+</sarra:project>
