@@ -20,7 +20,7 @@ public class Absence {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Long idAbsence;
   private Integer iduser = 0;
   private String firstname;
   private String lastname;

@@ -1,4 +1,4 @@
-package io.discoveryServer;
+package io.gatway;
 
 import jakarta.ws.rs.HttpMethod;
 import org.springframework.boot.SpringApplication;
@@ -140,6 +140,25 @@ public class ApiGateway {
                                 .and().method(HttpMethod.POST)
                                 .uri("lb://absence-service/absence/add")
                 )
+                .route("absence-service",
+                        r -> r.path("/absence/deleteAbsence/{idAbsence}")
+                                .and().method(HttpMethod.DELETE)
+                                .uri("lb://absence-service/absence/deleteAbsence")
+                )
+                .route(
+                        "absence-service",
+                        r -> r.path("/absence/getAbsence/{idAbsence}")
+                                .and().method(HttpMethod.GET)
+                                .uri("lb://absence-service/absence/getAbsence")
+                )
+//                .route(
+//                        "absence-service",
+//                        r -> r.path("/absence/updateAbsence")
+//                                .and().method(HttpMethod.PUT)
+//                                .uri("lb://absence-service/absence/updateAbsence")
+//                )
+
+
                 //dep
                 .route("dep-service",
                         r -> r.path("/lessons/getAllLessons")

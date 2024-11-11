@@ -10,11 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
+import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
 public class AbsenceServiceImpl implements AbsenceService {
-    private final AbsenceRepository absenceRepository;
+    @Autowired
+    private  AbsenceRepository absenceRepository;
     @Autowired
     private WebClient.Builder webClientBuilder;
 
@@ -28,6 +31,19 @@ public class AbsenceServiceImpl implements AbsenceService {
 
             return absenceRepository.save(absence);
 
+    }
+
+    @Override
+    public Absence getAbsenceById(Long idAbsence) { return absenceRepository.findById(idAbsence).orElse(null);
+    }
+    public Absence updateAbsence(Absence absence) {
+        return absenceRepository.save(absence);
+    }
+
+
+    @Override
+    public void deleteAbsence(Long idAbsence) {
+        absenceRepository.deleteById(idAbsence);
     }
 
 }
