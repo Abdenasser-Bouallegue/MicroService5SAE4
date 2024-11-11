@@ -1,0 +1,50 @@
+<section class="course-content" style="padding: 20PX">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="blog-content blog-read">
+          </div>
+        </div>
+       
+      </div>
+      <br>
+      <div class="row masonry-blog-blk">
+        <div class="col-lg-3">
+                <!-- Blog Post -->
+                <div class="d-flex ">
+
+                    <div *ngFor="let f of forums" class="col-12 mb-4">
+                      <!-- col-12 makes each blog take up the full width on all screen sizes -->
+                      <!-- mb-4 adds margin-bottom to create space between each blog -->
+                      <div class="blog grid-blog">
+                        <div class="blog-image">
+                            <img *ngIf="f.image" class="img-fluid" [src]="'data:image/jpeg;base64, ' + f.image" alt="Blog Image">
+
+
+                        </div>
+
+                        <div class="blog-grid-box masonry-box">
+                          <div class="blog-info clearfix">
+                            <div class="post-left">
+                              <ul>
+                                <li><img class="img-fluid" src="assets/img/icon/icon-22.svg" alt="">{{ f.createDate| date:'YYYY-MM-dd' }}</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <h3 class="blog-title">{{ f.title }}</h3>
+                          <div class="blog-content blog-read">
+                            <p>{{ f.body }}</p>
+                            <div class="btn-container">
+
+                              <a  [routerLink]="['/showforum', f.idForum] " class="btn btn-primary small-btn">Read More</a>
+                              <a (click)="deleteForum(f)"   class="btn btn-primary small-btn">Delete</a>
+                              <a routerLink="/mailing" class="btn btn-primary small-btn">mailing</a>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+</div></div></div></section>

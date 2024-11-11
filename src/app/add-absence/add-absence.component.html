@@ -1,0 +1,50 @@
+<div class="add-absence-container">
+  <h2>Add Absence</h2>
+  <form [formGroup]="absenceForm" (ngSubmit)="onSubmit()">
+
+    <label for="firstname">First Name:</label>
+    <input id="firstname" formControlName="firstname" type="text" />
+    <div *ngIf="absenceForm.get('firstname')?.touched && absenceForm.get('firstname')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('firstname')?.errors?.['required']">First name is required.</small>
+    </div>
+
+    <label for="lastname">Last Name:</label>
+    <input id="lastname" formControlName="lastname" type="text" />
+    <div *ngIf="absenceForm.get('lastname')?.touched && absenceForm.get('lastname')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('lastname')?.errors?.['required']">Last name is required.</small>
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+    <div *ngIf="absenceForm.get('email')?.touched && absenceForm.get('email')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="absenceForm.get('email')?.errors?.['email']">Enter a valid email.</small>
+    </div>
+
+    <label for="phoneNumber">Phone Number:</label>
+    <input id="phoneNumber" formControlName="phoneNumber" type="number" />
+    <div *ngIf="absenceForm.get('phoneNumber')?.touched && absenceForm.get('phoneNumber')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('phoneNumber')?.errors?.['required']">Phone number is required.</small>
+    </div>
+
+    <label for="registrationNumber">Registration Number:</label>
+    <input id="registrationNumber" formControlName="registrationNumber" type="text" />
+    <div *ngIf="absenceForm.get('registrationNumber')?.touched && absenceForm.get('registrationNumber')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('registrationNumber')?.errors?.['required']">Registration number is required.</small>
+    </div>
+
+    <label for="claase">Class:</label>
+    <input id="claase" formControlName="claase" type="text" />
+    <div *ngIf="absenceForm.get('claase')?.touched && absenceForm.get('claase')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('claase')?.errors?.['required']">Class is required.</small>
+    </div>
+
+    <label for="date">Date:</label>
+    <input id="date" formControlName="date" type="date" />
+    <div *ngIf="absenceForm.get('date')?.touched && absenceForm.get('date')?.invalid" class="error-message">
+      <small *ngIf="absenceForm.get('date')?.errors?.['required']">Date is required.</small>
+    </div>
+
+    <button type="submit" [disabled]="absenceForm.invalid">Add Absence</button>
+  </form>
+</div>

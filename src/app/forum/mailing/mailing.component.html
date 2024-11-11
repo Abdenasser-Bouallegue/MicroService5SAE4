@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="mail-message">
+      <div class="message-header">
+        <h2>
+          <input type="text" class="form-control" id="to" [(ngModel)]="newMail.to" name="to" required placeholder="Recipient">
+        </h2>
+        <p>
+          <input type="text" class="form-control" id="subject" [(ngModel)]="newMail.subject" name="subject" required placeholder="Subject">
+        </p>
+      </div>
+      <div class="message-body">
+        <p>
+          <textarea class="form-control" id="body" [(ngModel)]="newMail.body" name="body" required placeholder="Message Body"></textarea>
+        </p>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </form>
+  

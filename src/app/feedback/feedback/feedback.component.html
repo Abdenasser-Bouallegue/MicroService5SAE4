@@ -1,0 +1,79 @@
+
+      <section class="page-content course-sec" style="padding-inline: 15%;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+
+								<!-- Course Wizard -->
+								<div class="widget-set">
+									<div class="widget-content multistep-form">
+										<fieldset id="first">
+											<div class="add-course-info">
+												<div class="add-course-inner-header">
+                          <br>
+                          <br>
+                          <h3 style="color: #392C7D; text-align: center;">Feedback Information</h3>
+
+                          <br>
+												</div>
+                        <div *ngIf="errbadwords" class="warning-message">
+                          <p>Sorry ! Cannot add this feedback cause contains hate speech.</p>
+                          </div>
+												<div class="add-course-form">
+                          <form [formGroup]="feedbackForm" (ngSubmit)="addFeedback()">
+                            <div class="input-block">
+                                <label class="add-course-label">Feedback Title</label>
+                                <input type="text" class="form-control" placeholder="Feedback Title" formControlName="title"  >
+                                <div *ngIf="feedbackForm.get('title').invalid && feedbackForm.get('title').touched" class="text-danger">
+                                    <div *ngIf="feedbackForm.get('title')">
+                                        Title is required ..
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="input-block">
+                                <label class="add-course-label">Feedback Category</label>
+                                <select class="form-control select" formControlName="reclamationCategory">
+                                    <option value="" disabled>Select category</option>
+                                    <option *ngFor="let category of categories" [ngValue]="category">{{ category }}</option>
+                                </select>
+                                <div *ngIf="feedbackForm.get('reclamationCategory').invalid && feedbackForm.get('reclamationCategory').touched" class="text-danger">
+                                    Category is required.
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="add-course-label">Feedback Description</label>
+                                <textarea class="form-control"  rows="7" formControlName="body" [(ngModel)]="inputMessage"></textarea>
+                                <div *ngIf="feedbackForm.get('body').invalid && feedbackForm.get('body').touched" class="text-danger">
+                                    Description is required.
+                                </div>
+                            </div>
+                            <button  mat-raised-button class="input-group-text send_btn" id="startButton" (click)="startRecognition()"> <i class="fa-solid fa-microscope"></i></button>
+	                       <div id="output"></div>
+                            <div class="widget-btn">
+                                <a class="btn btn-black" style="background-color: #FF4667;" routerLink="/home">Back to Home</a>
+                                <button type="submit" class="btn btn-info-light" style="background-color:#392C7D;" [disabled]="!feedbackForm.valid">Send Feedback</button>
+                            </div>
+                        </form>
+
+												</div>
+
+											</div>
+										</fieldset>
+
+
+
+
+
+									</div>
+								</div>
+								<!-- /Course Wizard -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+

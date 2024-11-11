@@ -1,0 +1,8 @@
+<navbar></navbar>
+
+
+<hr>
+<add-event [localEvents]="events" (calEvent)="pushEvent($event)"></add-event>
+<hr>
+
+<full-calendar [options]="calendarOptions"></full-calendar>

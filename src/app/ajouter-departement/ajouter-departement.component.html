@@ -1,0 +1,115 @@
+<div class="container mt-4">
+    <h3 class="text-center mb-4" style="color: #007bff;">Ajouter une nouvelle leçon</h3>
+  
+    <form (ngSubmit)="onSubmit()" #lessonForm="ngForm">
+      <!-- Sujet de la leçon -->
+      <div class="mb-3">
+        <label for="subject" class="form-label">Sujet</label>
+        <input
+          type="text"
+          id="subject"
+          class="form-control"
+          [(ngModel)]="lesson.subject"
+          name="subject"
+          required
+          #subject="ngModel"
+        />
+        <div *ngIf="subject.invalid && subject.touched" class="text-danger">
+          Le sujet est requis.
+        </div>
+      </div>
+  
+      <!-- Enseignant -->
+      <div class="mb-3">
+        <label for="teacher" class="form-label">Enseignant</label>
+        <input
+          type="text"
+          id="teacher"
+          class="form-control"
+          [(ngModel)]="lesson.teacher"
+          name="teacher"
+          required
+          #teacher="ngModel"
+        />
+        <div *ngIf="teacher.invalid && teacher.touched" class="text-danger">
+          L'enseignant est requis.
+        </div>
+      </div>
+  
+      <!-- Groupe d'étudiants -->
+      <div class="mb-3">
+        <label for="studentGroup" class="form-label">Groupe d'étudiants</label>
+        <input
+          type="text"
+          id="studentGroup"
+          class="form-control"
+          [(ngModel)]="lesson.studentGroup"
+          name="studentGroup"
+          required
+          #studentGroup="ngModel"
+        />
+        <div *ngIf="studentGroup.invalid && studentGroup.touched" class="text-danger">
+          Le groupe d'étudiants est requis.
+        </div>
+      </div>
+  
+      <!-- Choisir l'horaires -->
+      <div class="mb-3">
+        <label for="dayOfWeek" class="form-label">Jour de la semaine</label>
+        <input
+          type="text"
+          id="dayOfWeek"
+          class="form-control"
+          [(ngModel)]="lesson.timeslot.dayOfWeek"
+          name="dayOfWeek"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="startTime" class="form-label">Heure de début</label>
+        <input
+          type="time"
+          id="startTime"
+          class="form-control"
+          [(ngModel)]="lesson.timeslot.startTime"
+          name="startTime"
+          required
+        />
+      </div>
+  
+      <div class="mb-3">
+        <label for="endTime" class="form-label">Heure de fin</label>
+        <input
+          type="time"
+          id="endTime"
+          class="form-control"
+          [(ngModel)]="lesson.timeslot.endTime"
+          name="endTime"
+          required
+        />
+      </div>
+  
+      <!-- Choisir la salle -->
+      <div class="mb-3">
+        <label for="roomName" class="form-label">Salle</label>
+        <input
+          type="text"
+          id="roomName"
+          class="form-control"
+          [(ngModel)]="lesson.room.name"
+          name="roomName"
+          required
+        />
+      </div>
+  
+      <!-- Bouton d'enregistrement -->
+      <button type="submit" class="btn btn-primary" [disabled]="lessonForm.invalid">Enregistrer la leçon</button>
+    </form>
+  
+    <!-- Message de succès -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+      {{ successMessage }}
+    </div>
+  </div>
+  

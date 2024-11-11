@@ -1,0 +1,18 @@
+.user {
+    border: 1px solid #F66962;
+    border-radius: 6px;
+    margin: 13px 13px 13px 13px;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #F66962;
+    font-size: 14px;
+    padding: 13px 41px;
+}
+
+.user:hover {
+    border: 1px solid #F66962;
+    background: gainsboro;
+    /* box-shadow: 0 2px 1px 0 (0.5); */
+}
