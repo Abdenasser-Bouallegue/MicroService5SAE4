@@ -26,7 +26,11 @@ spring:
         add-to-simple-url-handler-mapping: true
       x-forwarded:
         enabled: true
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/Alibou
 
 eureka:
   client:

@@ -1,0 +1,187 @@
+services:
+  postgres-rayen-dorra:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "quiz-absence"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "pass"
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "example"
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+    volumes:
+      - mongo-data:/var/lib/mongo/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "foyer"
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  module-quiz:
+    image: rayenkh98/quiz
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-rayen-dorra:5432/quiz-absence"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "pass"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "0:0"
+    depends_on:
+      postgres-rayen-dorra:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-absence:
+    image: rayenkh98/absence
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-rayen-dorra:5432/quiz-absence"
+      SPRING_DATASOURCE_USERNAME: "postgres"
+      SPRING_DATASOURCE_PASSWORD: "pass"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "0:0"
+    depends_on:
+      postgres-rayen-dorra:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-mailing:
+    image: rayenkh98/mailing
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/mail?createDatabaseIfNotExist=true"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: ""
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+
+    ports:
+      - "0:0"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-forum:
+    image: rayenkh98/forum
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/forumDb?createDatabaseIfNotExist=true"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: ""
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "0:0"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-feeddback:
+    image: rayenkh98/feedback
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "0:0"
+    networks:
+      - app-network
+
+  module-discovery:
+    image: rayenkh98/discovery
+    ports:
+      - "8761:8761"
+    networks:
+      - app-network
+
+  module-departement:
+    image: rayenkh98/departement
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/departementDB?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: ""
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "0:0"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-course:
+    image: rayenkh98/course
+    environment:
+      SPRING_DATASOURCE_URL: "mongodb://mongo:27017"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "0:0"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-gateway:
+    image: rayenkh98/gateway
+    environment:
+      RESOURCESERVER_JWT_ISSUER-URI: "http://192.168.1.229:8080/realms/Alibou"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://module-discovery:8761/eureka"
+    ports:
+      - "8090:8090"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  module-user:
+    image: rayenkh98/user
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://root:example@mongo:27017/mydatabase?authSource=admin
+    depends_on:
+      - mongo
+
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  mongo-data:
