@@ -1,6 +1,9 @@
 FROM openjdk:19-slim
-EXPOSE 0
-ADD target/Service-absence
+
+EXPOSE 8091
+
+COPY target/*.jar app.jar
+
 LABEL authors="dori"
 
 ENTRYPOINT ["java", "-jar","Service-absence-dk.jar"]
