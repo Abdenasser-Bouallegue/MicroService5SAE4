@@ -151,12 +151,12 @@ public class ApiGateway {
                                 .and().method(HttpMethod.GET)
                                 .uri("lb://absence-service/absence/getAbsence")
                 )
-//                .route(
-//                        "absence-service",
-//                        r -> r.path("/absence/updateAbsence")
-//                                .and().method(HttpMethod.PUT)
-//                                .uri("lb://absence-service/absence/updateAbsence")
-//                )
+                .route(
+                        "absence-service",
+                        r -> r.path("/absence/updateAbsence")
+                                .and().method(HttpMethod.PUT)
+                                .uri("lb://absence-service/absence/updateAbsence")
+                )
 
 
                 //dep
